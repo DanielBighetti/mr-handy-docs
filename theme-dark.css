@@ -198,3 +198,65 @@ body {
   color: #ffffff !important;
   filter: brightness(1.12);
 }
+
+/* === Sidebar toggle / hamburger refinement === */
+
+.sidebar-toggle {
+  background: #0f172a !important;
+  border-top: 1px solid #1e293b !important;
+  border-right: 1px solid #1e293b !important;
+  width: 300px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding-left: 18px !important;
+  box-sizing: border-box !important;
+}
+
+.sidebar-toggle span {
+  background-color: #93c5fd !important;
+  width: 24px !important;
+  height: 3px !important;
+  border-radius: 999px !important;
+  margin: 3px 0 !important;
+  box-shadow: none !important;
+}
+
+.sidebar-toggle::after {
+  content: "Menu";
+  color: #e5e7eb !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.sidebar-toggle:hover {
+  background: #111827 !important;
+}
+
+.sidebar-toggle:hover span {
+  background-color: #ffffff !important;
+}
+
+body.close .sidebar-toggle {
+  width: 56px !important;
+  background: #0f172a !important;
+}
+
+body.close .sidebar-toggle::after {
+  content: "" !important;
+}
+
+/* Mobile safety */
+@media screen and (max-width: 768px) {
+  .sidebar-toggle {
+    width: 56px !important;
+    background: #0f172a !important;
+  }
+
+  .sidebar-toggle::after {
+    content: "" !important;
+  }
+}
