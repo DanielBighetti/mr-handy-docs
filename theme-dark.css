@@ -103,3 +103,98 @@ body {
   border-radius: 10px;
   padding: 8px;
 }
+
+/* === Dark theme refinements: tables and buttons === */
+
+/* Tables: remove white zebra rows from Docsify/theme defaults */
+.markdown-section table,
+.markdown-section thead,
+.markdown-section tbody {
+  background-color: #0f172a !important;
+  color: #e5e7eb !important;
+}
+
+.markdown-section table tr,
+.markdown-section table tr:nth-child(odd),
+.markdown-section table tr:nth-child(even),
+.markdown-section table tbody tr,
+.markdown-section table tbody tr:nth-child(odd),
+.markdown-section table tbody tr:nth-child(even) {
+  background-color: #0f172a !important;
+  color: #e5e7eb !important;
+}
+
+.markdown-section table tbody tr:nth-child(even) {
+  background-color: #111827 !important;
+}
+
+.markdown-section table th {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+.markdown-section table td {
+  background-color: transparent !important;
+  color: #e5e7eb !important;
+  border-color: #334155 !important;
+}
+
+.markdown-section table td *,
+.markdown-section table th * {
+  color: inherit !important;
+}
+
+/* Keep code chips readable inside tables */
+.markdown-section table code {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Buttons / CTAs: improve label contrast */
+.markdown-section a.button,
+.markdown-section .button,
+.markdown-section .btn,
+.markdown-section .cta,
+.markdown-section .primary,
+.markdown-section .secondary,
+.markdown-section a[class*="button"],
+.markdown-section a[class*="btn"],
+.markdown-section a[class*="cta"] {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+}
+
+/* Primary blue buttons */
+.markdown-section a.button-primary,
+.markdown-section .button-primary,
+.markdown-section .btn-primary,
+.markdown-section a[class*="primary"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #60a5fa !important;
+}
+
+/* Secondary / outline buttons */
+.markdown-section a.button-secondary,
+.markdown-section .button-secondary,
+.markdown-section .btn-secondary,
+.markdown-section a[class*="secondary"] {
+  background-color: transparent !important;
+  color: #93c5fd !important;
+  border-color: #60a5fa !important;
+}
+
+/* Hover state */
+.markdown-section a.button:hover,
+.markdown-section .button:hover,
+.markdown-section .btn:hover,
+.markdown-section .cta:hover,
+.markdown-section a[class*="button"]:hover,
+.markdown-section a[class*="btn"]:hover,
+.markdown-section a[class*="cta"]:hover {
+  color: #ffffff !important;
+  filter: brightness(1.12);
+}
