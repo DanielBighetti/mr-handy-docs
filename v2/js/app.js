@@ -3,6 +3,7 @@
     nav_overview: "Visão geral",
     nav_how: "Como funciona",
     nav_tracks: "Trilhas",
+    nav_demo: "Demo",
     nav_setup: "Instalação",
     nav_faq: "FAQ",
 
@@ -30,6 +31,15 @@
     track_b: "Documentação gerada diretamente no canvas do Figma.",
     track_c: "Especificação profunda de componentes, variantes, tokens, estrutura e acessibilidade.",
 
+    demo_eyebrow: "Veja em ação",
+    demo_title: "O que é fisicamente o Mr. Handy?",
+    demo_text: "Mr. Handy é um workspace operacional que conecta IDE, Figma, agentes de IA, MCPs e documentação estruturada para transformar telas e componentes em handoffs prontos para execução.",
+    outputs_label: "Outputs principais",
+    output_1: "Markdown, HTML navegável e screenshots por tela para handoff fora do Figma.",
+    output_2: "Documentação criada diretamente no canvas do Figma, com SpecCards e notas visuais.",
+    output_3: "Especificação profunda de componentes, variantes, tokens, estrutura, motion e acessibilidade.",
+    output_4: "Rastreabilidade da execução, cobertura, fases, reroutes e validações do pipeline.",
+
     setup_eyebrow: "Instalação",
     setup_title: "Ambiente necessário",
     setup_text: "O Mr. Handy opera com Node.js, Cursor ou IDE compatível, Figma OAuth e plugin uSpec Extract para o fluxo de componentes.",
@@ -53,6 +63,7 @@
     nav_overview: "Overview",
     nav_how: "How it works",
     nav_tracks: "Tracks",
+    nav_demo: "Demo",
     nav_setup: "Setup",
     nav_faq: "FAQ",
 
@@ -79,6 +90,15 @@
     track_a: "Markdown, HTML, and screenshots for documentation outside Figma.",
     track_b: "Documentation generated directly inside the Figma canvas.",
     track_c: "Deep component specification covering variants, tokens, structure, and accessibility.",
+
+    demo_eyebrow: "See it in action",
+    demo_title: "What is Mr. Handy physically?",
+    demo_text: "Mr. Handy is an operational workspace that connects IDE, Figma, AI agents, MCPs, and structured documentation to turn screens and components into execution-ready handoffs.",
+    outputs_label: "Main outputs",
+    output_1: "Markdown, browsable HTML, and per-screen screenshots for handoff outside Figma.",
+    output_2: "Documentation created directly in the Figma canvas with SpecCards and visual notes.",
+    output_3: "Deep component specification covering variants, tokens, structure, motion, and accessibility.",
+    output_4: "Execution traceability, coverage, phases, reroutes, and pipeline validations.",
 
     setup_eyebrow: "Setup",
     setup_title: "Required environment",
@@ -122,3 +142,4 @@ document.getElementById("langToggle").addEventListener("click", () => {
 });
 
 applyLanguage(currentLang);
+
