@@ -4,6 +4,7 @@
     nav_how: "Como funciona",
     nav_tracks: "Trilhas",
     nav_demo: "Demo",
+    nav_gallery: "Galeria",
     nav_setup: "Instalação",
     nav_faq: "FAQ",
 
@@ -40,6 +41,22 @@
     output_3: "Especificação profunda de componentes, variantes, tokens, estrutura, motion e acessibilidade.",
     output_4: "Rastreabilidade da execução, cobertura, fases, reroutes e validações do pipeline.",
 
+    gallery_eyebrow: "Galeria do produto",
+    gallery_title: "Veja como o Mr. Handy aparece na prática",
+    gallery_text: "Uma visão visual dos pontos principais da experiência: setup, fluxo operacional, documentação, autenticação e entregáveis.",
+    gallery_1_title: "Identidade do produto",
+    gallery_1_text: "A proposta visual e conceitual do Mr. Handy como especialista de documentação.",
+    gallery_2_title: "Fluxo antes e depois",
+    gallery_2_text: "Comparação entre documentação manual e pipeline automatizado de handoff.",
+    gallery_3_title: "Download do bundle",
+    gallery_3_text: "Primeiro passo da jornada: obter o pacote do Mr. Handy.",
+    gallery_4_title: "Estrutura local",
+    gallery_4_text: "Organização dos arquivos, docs, comandos, skills e configuração.",
+    gallery_5_title: "Setup wizard",
+    gallery_5_text: "Assistente de configuração, validação e preparação do ambiente.",
+    gallery_6_title: "Figma OAuth",
+    gallery_6_text: "Autorização via navegador para conectar Figma e IDE sem token manual.",
+
     setup_eyebrow: "Instalação",
     setup_title: "Ambiente necessário",
     setup_text: "O Mr. Handy opera com Node.js, Cursor ou IDE compatível, Figma OAuth e plugin uSpec Extract para o fluxo de componentes.",
@@ -64,6 +81,7 @@
     nav_how: "How it works",
     nav_tracks: "Tracks",
     nav_demo: "Demo",
+    nav_gallery: "Gallery",
     nav_setup: "Setup",
     nav_faq: "FAQ",
 
@@ -99,6 +117,22 @@
     output_2: "Documentation created directly in the Figma canvas with SpecCards and visual notes.",
     output_3: "Deep component specification covering variants, tokens, structure, motion, and accessibility.",
     output_4: "Execution traceability, coverage, phases, reroutes, and pipeline validations.",
+
+    gallery_eyebrow: "Product gallery",
+    gallery_title: "See what Mr. Handy looks like in practice",
+    gallery_text: "A visual overview of the key points of the experience: setup, operational flow, documentation, authentication, and deliverables.",
+    gallery_1_title: "Product identity",
+    gallery_1_text: "The visual and conceptual proposition of Mr. Handy as a documentation specialist.",
+    gallery_2_title: "Before and after flow",
+    gallery_2_text: "A comparison between manual documentation and the automated handoff pipeline.",
+    gallery_3_title: "Bundle download",
+    gallery_3_text: "The first step of the journey: getting the Mr. Handy package.",
+    gallery_4_title: "Local structure",
+    gallery_4_text: "Organization of files, docs, commands, skills, and configuration.",
+    gallery_5_title: "Setup wizard",
+    gallery_5_text: "Configuration, validation, and environment preparation assistant.",
+    gallery_6_title: "Figma OAuth",
+    gallery_6_text: "Browser-based authorization to connect Figma and IDE without a manual token.",
 
     setup_eyebrow: "Setup",
     setup_title: "Required environment",
@@ -142,4 +176,5 @@ document.getElementById("langToggle").addEventListener("click", () => {
 });
 
 applyLanguage(currentLang);
+
 
