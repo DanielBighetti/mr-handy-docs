@@ -1,0 +1,105 @@
+﻿:root {
+  --theme-color: #4ea1ff;
+}
+
+body {
+  background: #0b1220 !important;
+  color: #e5e7eb !important;
+}
+
+.sidebar {
+  background: #0f172a !important;
+  border-right: 1px solid #1e293b !important;
+}
+
+.sidebar ul li a {
+  color: #cbd5e1 !important;
+}
+
+.sidebar ul li.active > a,
+.sidebar ul li a:hover {
+  color: #4ea1ff !important;
+}
+
+.search {
+  background: #0f172a !important;
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.search input {
+  background: #111827 !important;
+  color: #e5e7eb !important;
+  border: 1px solid #334155 !important;
+}
+
+.content {
+  background: #0b1220 !important;
+}
+
+.markdown-section {
+  color: #e5e7eb !important;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: #f8fafc !important;
+}
+
+.markdown-section a {
+  color: #60a5fa !important;
+}
+
+.markdown-section strong {
+  color: #ffffff !important;
+}
+
+.markdown-section blockquote {
+  background: #111827 !important;
+  border-left: 4px solid #4ea1ff !important;
+  color: #cbd5e1 !important;
+}
+
+.markdown-section code {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.markdown-section pre {
+  background: #111827 !important;
+  border: 1px solid #334155 !important;
+  color: #e5e7eb !important;
+}
+
+.markdown-section pre > code {
+  background: transparent !important;
+  color: #e5e7eb !important;
+}
+
+.markdown-section table {
+  background: #0f172a !important;
+  color: #e5e7eb !important;
+}
+
+.markdown-section tr {
+  border-top: 1px solid #334155 !important;
+}
+
+.markdown-section td,
+.markdown-section th {
+  border: 1px solid #334155 !important;
+}
+
+.markdown-section th {
+  background: #111827 !important;
+}
+
+.markdown-section img {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 8px;
+}
