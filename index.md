@@ -1,9 +1,8 @@
-# Mr. Handy
+﻿# Mr. Handy
 
 > **Design handoff documentation specialist** for Cursor, Claude Code, Codex, Windsurf, Zed, Cline, and Continue. Turns the finished Figma file into a structured manifest your dev team can read.
 
 <p align="center">
-  <img src="../assets/mr-handy-banner.png" alt="Mr. Handy banner" width="720" />
 </p>
 
 ---
@@ -56,20 +55,15 @@ Nothing exotic. The same four tools the modern design-dev handoff already runs o
 
 Multi-screen flows, dashboards, wizards, kanban boards, full pages. Mr. Handy walks each screen, builds a Scenario Coverage Matrix, annotates SpecCards (the canonical handoff card layout — five fields: Name, Value, Behavior, Description, States), generates a Notes section for cross-screen rules, and produces:
 
-![Scenario Coverage Matrix — real worked example](../assets/screenshots/scenario-coverage-matrix.png)
 
-![SpecCard (five-field) — gold-standard render](../assets/screenshots/speccard-five-fields.png)
 
 - **Mode A** — `Handoff-{Flow}.md` + `Handoff-{Flow}.html` + `screenshots/{kebab-case-screen}.png`
 - **Mode B** — a Figma canvas page with SpecCards and Notes, plus a companion Markdown table
 
-![Mode A output — Handoff-{Flow}.html in a browser](../assets/screenshots/mode-a-output.png)
 
-![Mode B canvas — SpecCards and Notes placed beside the frames](../assets/screenshots/mode-b-canvas.png)
 
 The Notes section consolidates cross-screen rules — thresholds, role permissions, status mappings, business logic. Tables for thresholds; ≤6 bullets per note; no four-deep bullet trees.
 
-![Cross-screen rules & notes — worked example](../assets/screenshots/cross-screen-rules-notes.png)
 
 Every screen passes through the same processing loop: **REASON → PLAN → GATHER + EXECUTE → CONTINUE**. Three or more screens get fanned out across parallel `mr-handy-screen-analyzer` subagents. Conflict between sources (Figma vs Jira vs spec markdown) is surfaced explicitly — Mr. Handy never silently picks a side.
 
@@ -93,7 +87,6 @@ The per-component pipeline runs the vendored uSpec extractor (a small Figma plug
 
 Turn a completed per-screen handoff into an Apple-keynote-style SlideV deck. The deck creator extracts the story arc, coverage stats, and screenshots from `Handoff-{Flow}.md`, then emits a ready-to-export `presentations/{slug}/` package.
 
-![SlideV deck — Apple-keynote-style rendered example](../assets/screenshots/slidev-deck.png)
 
 ```
 /handoff-deck  → generate a SlideV deck from a handoff
@@ -109,7 +102,6 @@ See [`slidev-decks.md`](./slidev-decks.md) for how the template works and how to
 
 One command. The wizard (`Setup-MrHandy.bat` on Windows, `./setup-mrhandy.sh` on macOS / Linux / WSL, or `node setup-mrhandy.mjs` directly) verifies Node ≥ 18, populates `mr-handy.config.json`, asks one y/N question for the optional Atlassian MCP, writes the right `mcp.json` for every IDE it finds installed, and builds the uSpec extractor. Figma and Atlassian use OAuth — no PAT, no email, no API token. **By default the wizard runs silently** — no readline prompts, placeholders are valid, idempotent re-runs. After that, restart your IDE, sign in to Figma (and Atlassian) in the browser when the OAuth pop-up appears, and the rules and skills auto-load.
 
-![Setup wizard — silent auto-setup running, all 5 phases green](../assets/screenshots/setup-wizard.png)
 
 Want the interactive wizard instead? `SETUP_INTERACTIVE=1 Setup-MrHandy.bat` (or `node setup-mrhandy.mjs` with no flags).
 

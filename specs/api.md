@@ -1,4 +1,4 @@
-# API
+﻿# API
 
 The typed property dictionary. Property name, type, default, required flag, allowed values, sub-component tables, and configuration examples — everything a developer needs to instantiate the component without opening Figma.
 

@@ -1,4 +1,4 @@
-# Component Markdown — `/handoff-component`
+﻿# Component Markdown — `/handoff-component`
 
 A single self-contained `components/{slug}.md` per component. All seven spec dimensions in one file: anatomy, properties, API, color, structure, screen reader, motion. Hand it to any LLM and they have everything they need to implement.
 

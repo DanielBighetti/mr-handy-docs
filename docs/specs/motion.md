@@ -1,4 +1,4 @@
-# Motion
+﻿# Motion
 
 Animation timeline + easing curves. Only emitted when the component has motion data (After Effects keyframes, motion-spec metadata, or recorded animation state changes).
 

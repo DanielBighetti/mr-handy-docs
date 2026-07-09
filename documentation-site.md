@@ -1,4 +1,4 @@
-> A Markdown source version of the HTML documentation site. Render with any static-site generator, or publish to Confluence as-is.
+﻿> A Markdown source version of the HTML documentation site. Render with any static-site generator, or publish to Confluence as-is.
 
 # Mr. Handy Documentation
 

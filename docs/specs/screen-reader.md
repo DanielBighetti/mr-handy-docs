@@ -1,4 +1,4 @@
-# Screen Reader
+﻿# Screen Reader
 
 Focus order across VoiceOver / TalkBack / ARIA. State-by-state behavior. Slot-aware focus stops. The accessibility surface of the component documented for engineering, not just for compliance forms.
 

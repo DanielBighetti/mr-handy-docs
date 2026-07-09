@@ -1,6 +1,5 @@
 ﻿# Getting Started
 
-![](../assets/icons/icon-rocket.svg) **Mr. Handy installs in one command.** Windows, macOS, Linux, WSL — same wizard, same output. The wrapper runs **silently** by default: no readline prompts, placeholders are valid, idempotent re-runs. About five minutes start-to-finish, plus a 30-second Figma plugin import.
 
 ---
 
@@ -10,11 +9,6 @@ Before you start, confirm you have these five things. Most modern design teams a
 
 | | Premise | What it means |
 |---|---|---|
-| ![](../assets/icons/figma.svg) | **Figma as source-of-truth** | Your team designs in Figma. The whole point of Mr. Handy is to read the file as-is. |
-| ![](../assets/icons/cursor.svg) | **Cursor / Claude Code / Codex / Windsurf / Zed / Cline / Continue seat** | The agent host. The setup wizard detects which ones you have and writes the right `mcp.json` shape for each. |
-| ![](../assets/icons/icon-key.svg) | **Figma OAuth** | OAuth via navegador. A IDE abre o fluxo de autorização do Figma no primeiro uso; não é necessário colar PAT, e-mail ou API token. |
-| ![](../assets/icons/figma.svg) | **Figma Desktop** | The Bridge and uSpec plugins are desktop-only. Web Figma is not enough. |
-| ![](../assets/icons/icon-pipeline.svg) | **Node.js ≥ 18** | Needed to build the uSpec extractor plugin, export SlideV decks, and run the setup wizard. |
 
 > If you're an in-house team, agency, or product studio — **the same five apply**. The wizard doesn't care which company you work for. Adjustment is a config swap, not a code change. See [the FAQ in `index.md`](./index.md#faq--common-questions) for the full portability story.
 
@@ -65,7 +59,6 @@ node setup-mrhandy.mjs
 
 All three call the same `setup-mrhandy.mjs`. The wizard:
 
-![Setup wizard — silent auto-setup running](../assets/screenshots/setup-wizard.png)
 
 1. Probes Node ≥ 18 and reports the version.
 2. Loads `.env` (if present) and merges into `process.env` (env > .env > saved config > placeholder).

@@ -1,0 +1,25 @@
+﻿
+  ΓûêΓûäΓûäΓûäΓûê ΓûêΓûêΓûêΓûä        Γûê   Γûê  ΓûêΓûêΓûê  Γûê   Γûê ΓûêΓûêΓûêΓûä  Γûê   Γûê 
+  ΓûêΓûÇΓûêΓûÇΓûê Γûê  Γûê        Γûê   Γûê Γûê   Γûê ΓûêΓûê  Γûê Γûê  Γûê   Γûê Γûê  
+  Γûê ΓûÇ Γûê ΓûêΓûêΓûêΓûÇ        ΓûêΓûêΓûêΓûêΓûê ΓûêΓûêΓûêΓûêΓûê Γûê Γûê Γûê Γûê  Γûê    Γûê   
+  Γûê   Γûê Γûê ΓûÇΓûä        Γûê   Γûê Γûê   Γûê Γûê  ΓûêΓûê Γûê  Γûê    Γûê   
+  Γûê   Γûê Γûê  Γûê        Γûê   Γûê Γûê   Γûê Γûê   Γûê ΓûêΓûêΓûêΓûÇ    Γûê   
+
+  Design handoff documentation specialist ┬╖ setup wizard
+
+  Doctor mode
+  validates mr-handy.config.json + Figma keys before a real run
+
+  Γ£ô mr-handy.config.json  valid ┬╖ DS=fluent-2
+  Γ£ô Knowledge/design-systems/fluent-2.md  present
+  Γ£ô figmaTemplate.fileKey (ZW1YudFVJABLcdKIJEj6z9)  reachable via Figma REST API
+  Γ£ô mr-handy.config.schema.json  present
+  Γ£ô Figma Desktop Bridge manifest  C:\Users\julio\.figma-console-mcp\plugin\manifest.json
+  Γ£ô Knowledge/run-log/  telemetry directory ready
+
+  Γ£ô 6/6 checks passed
+
+  stamped: Knowledge\run-log\doctor-2026-05-03.jsonl
+
+  /help all commands ┬╖ ctrl + c to exit ┬╖ --doctor health check
+

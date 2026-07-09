@@ -1,4 +1,4 @@
-# How It Works
+﻿# How It Works
 
 Mr. Handy is **two pipelines in one repo**, sharing identity, knowledge, and Figma access. This page is the map: what each pipeline does, what runs in parallel, where the gates are, and what comes out the other end.
 
@@ -29,7 +29,6 @@ A multi-screen handoff goes through six explicit phases. Specifics live in [`../
 
 ### The phase bar
 
-![Per-screen phase bar — Greeting → Flow mapping → Screen analysis → Coverage matrix → Notes synth → Output gen → Validation](../assets/screenshots/pipeline-bar.svg)
 
 > _Phase-bar composite is rendered as SVG by [`../scripts/capture-screenshots.mjs`](../scripts/capture-screenshots.mjs). To get a `.png` copy alongside the others, run `npm install --no-save playwright` once and re-run the script — it converts the SVG to PNG via headless Chromium._
 
@@ -63,13 +62,11 @@ Conflicts (frame name vs Jira EPIC vs spec markdown) are surfaced, never auto-re
 
 `mr-handy-scenario-auditor` builds a matrix of all scenarios (states, edge cases, error variants) the handoff documents. Every uncovered gap becomes an open question Mr. Handy asks the user.
 
-![Scenario Coverage Matrix — real worked example](../assets/screenshots/scenario-coverage-matrix.png)
 
 ### Phase 3 — Notes synthesis
 
 Cross-screen rules — thresholds, role permissions, status mappings, business logic — get consolidated into the Notes section. The output style follows the Asset Library / Campaign Builder reference handoffs in `examples/handoffs/` (tables for thresholds; ≤6 bullets per note; no four-deep bullet trees). Anti-pattern: the Performance Dashboard reference, included to show what to avoid.
 
-![Cross-screen rules & notes — real worked example](../assets/screenshots/cross-screen-rules-notes.png)
 
 ### Phase 4 — Output generation
 
@@ -77,15 +74,12 @@ Routes by mode:
 
 - **Mode A** — `mr-handy-doc-generator` produces `Handoff-{Flow}.md`, `Handoff-{Flow}.html` (per `Knowledge/html-template.md`), and screenshots under `screenshots/`. The HTML uses the canonical Zoom card layout for SpecCards.
 
-  ![Mode A output — Handoff-{Flow}.html in a browser](../assets/screenshots/mode-a-output.png)
 
 - **Mode B** — `mr-handy-figma-builder` writes a Figma canvas page using the Page Layout Template in [`../.cursor/rules/mr-handy-figma.mdc`](../.cursor/rules/mr-handy-figma.mdc): five-band structure (Left Gutter / optional Nested Area Column / Screen Frame / Right Gutter / Notes Column), the canonical SpecCard component, indicator dots aligned to documented elements. All writes route through Native Figma MCP.
 
-  ![Mode B canvas — SpecCards and Notes placed beside the frames](../assets/screenshots/mode-b-canvas.png)
 
   Both modes use the same canonical SpecCard component — five fields (Name, Value, Behavior, Description, States):
 
-  ![SpecCard (five-field) — gold-standard render](../assets/screenshots/speccard-five-fields.png)
 
 ### Phase 5 — Validation & continuation
 
@@ -174,7 +168,6 @@ The deck is a story, not a spec: implementation detail stays in the handoff Mark
 
 For a live example, see [`../presentations/ntt-brazil-roi/`](../presentations/ntt-brazil-roi/) — a 30-slide ROI deck built end-to-end from a Mr. Handy handoff.
 
-![SlideV deck — Apple-keynote-style rendered example](../assets/screenshots/slidev-deck.png)
 
 ---
 

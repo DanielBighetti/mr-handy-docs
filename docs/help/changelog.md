@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 Mr. Handy release notes. The vendored uSpec changelog is mirrored separately at [`../../Knowledge/uspec-changelog.md`](../../Knowledge/uspec-changelog.md) and tracks the upstream specifications-pipeline component.
 

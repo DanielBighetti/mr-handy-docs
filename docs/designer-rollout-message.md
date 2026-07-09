@@ -1,4 +1,4 @@
-# Designer rollout message — Mr. Handy 1.9.4
+﻿# Designer rollout message — Mr. Handy 1.9.4
 
 Copy-paste-ready message for sharing the tool with the design team. Two versions: **English** and **Português (Brasil)**. Same content, same structure, side by side so you can pick whichever your team uses.
 

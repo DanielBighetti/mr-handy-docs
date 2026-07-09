@@ -1,4 +1,4 @@
-# Mr. Handy — Documentation
+﻿# Mr. Handy — Documentation
 
 Local Markdown docs. Renders directly in Cursor and on GitHub. No build step, no MDX, no hosting required.
 

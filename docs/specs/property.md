@@ -1,4 +1,4 @@
-# Properties
+﻿# Properties
 
 Variant matrices, boolean toggles, variable mode exhibits, and child-component chapters. The visual side of the API.
 

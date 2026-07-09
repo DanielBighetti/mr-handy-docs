@@ -1,4 +1,4 @@
-# SlideV executive decks
+﻿# SlideV executive decks
 
 Mr. Handy can turn a completed per-screen handoff into an Apple-keynote-style SlideV deck. The deck is a narrative summary for stakeholders — not a replacement for the handoff Markdown.
 

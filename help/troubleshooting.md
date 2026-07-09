@@ -8,11 +8,6 @@ If something is misbehaving, the fastest check is "do I have all five?"
 
 | | Premise | Quick check |
 |---|---|---|
-| ![](../../assets/icons/figma.svg) | **Figma as source-of-truth** | Your team designs in Figma, not Sketch / XD / Axure. |
-| ![](../../assets/icons/cursor.svg) | **An agent-host IDE seat** | Cursor, Claude Code, Codex, Windsurf, Zed, Cline, or Continue. The wizard detects which you have installed and writes the right `mcp.json` to each. |
-| ![](../../assets/icons/figma.svg) | **Figma OAuth** | OAuth via navegador no primeiro uso. Não é necessário gerar ou colar PAT/token manual. |
-| ![](../../assets/icons/figma.svg) | **Figma Desktop installed** | Figma Desktop is open, not the web app. |
-| ![](../../assets/icons/icon-pipeline.svg) | **Node.js ≥ 18** | `node --version` prints `v18` or higher. |
 
 If any of those are missing, the section below is irrelevant until they're fixed.
 

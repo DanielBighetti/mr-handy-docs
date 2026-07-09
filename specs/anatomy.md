@@ -1,4 +1,4 @@
-# Anatomy
+﻿# Anatomy
 
 Numbered markers + an attribute table. Says what every visible part of the component is and what role it plays.
 

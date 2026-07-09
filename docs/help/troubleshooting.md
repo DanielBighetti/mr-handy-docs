@@ -1,4 +1,4 @@
-# Troubleshooting
+﻿# Troubleshooting
 
 Most issues fall into one of four buckets: setup / config, MCP routing, the per-component plugin, or output validation. Walk this in order.
 

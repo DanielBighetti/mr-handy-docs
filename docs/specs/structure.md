@@ -1,4 +1,4 @@
-# Structure
+﻿# Structure
 
 Dimensions, spacing, padding across density / size / shape variants. Plus the coverage matrix that proves nothing was silently dropped.
 

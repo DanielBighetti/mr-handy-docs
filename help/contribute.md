@@ -1,4 +1,4 @@
-# Contribute
+﻿# Contribute
 
 Mr. Handy is a Cursor-native rule system. "Contributing" means adding knowledge files, design systems, rules, agents, or skills — there's no external API, no SDK, no codebase distinction between core and userland.
 
