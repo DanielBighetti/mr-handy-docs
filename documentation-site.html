@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Handy Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-elevated: #14191f;
+      --bg-card: #1a1f28;
+      --text: #f5f5f7;
+      --text-secondary: rgba(255,255,255,0.72);
+      --text-muted: rgba(255,255,255,0.42);
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.16);
+      --future: #19A3FC;
+      --future-deep: #0072BC;
+      --green: #00CB5D;
+      --orange: #FF7A00;
+      --yellow: #FFC400;
+      --danger: #ef4444;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.24), 0 8px 24px rgba(0, 0, 0, 0.32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* Layout -------------------------------------------------------------- */
+    .site {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--bg-elevated);
+      border-right: 1px solid var(--line);
+      padding: 2rem 1.5rem;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--future), var(--future-deep));
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: white;
+      font-size: 14px;
+    }
+
+    .sidebar-title { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.25; }
+    .sidebar-subtitle { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+    .nav-section { margin-bottom: 1.75rem; }
+
+    .nav-heading {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin: 0 0 0.75rem 0;
+    }
+
+    .nav-list { list-style: none; margin: 0; padding: 0; }
+    .nav-list li { margin: 0.15rem 0; }
+
+    .nav-list a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-list a:hover,
+    .nav-list a.active {
+      background: rgba(25, 163, 252, 0.10);
+      color: var(--future);
+    }
+
+    .main {
+      max-width: 980px;
+      padding: 3rem 4rem 6rem;
+      margin: 0 auto;
+    }
+
+    .content-section { margin-bottom: 4rem; }
+
+    /* Hero --------------------------------------------------------------- */
+    .hero {
+      background: linear-gradient(180deg, rgba(25,163,252,0.08) 0%, transparent 100%);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--future);
+      background: rgba(25, 163, 252, 0.10);
+      border: 1px solid rgba(25, 163, 252, 0.30);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--future) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .lead {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 56ch;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .cta-primary {
+      background: var(--future);
+      color: #0d1117;
+    }
+
+    .cta-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(25, 163, 252, 0.3); }
+
+    .cta-secondary {
+      background: transparent;
+      color: var(--future);
+      border: 1px solid var(--future);
+    }
+
+    .cta-secondary:hover { background: rgba(25, 163, 252, 0.08); }
+
+    /* Typography --------------------------------------------------------- */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    h1 { font-size: 2.75rem; margin-bottom: 1rem; }
+    h2 { font-size: 1.85rem; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--line); }
+    h3 { font-size: 1.35rem; margin-top: 2.25rem; margin-bottom: 0.75rem; color: var(--text); }
+    h4 { font-size: 1.1rem; margin-top: 1.75rem; margin-bottom: 0.5rem; color: var(--text-secondary); }
+
+    p { margin-bottom: 1rem; color: var(--text-secondary); }
+    a { color: var(--future); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .lead { font-size: 1.2rem; color: var(--text); margin-bottom: 2rem; }
+
+    /* Icon ring row ------------------------------------------------------ */
+    .icon-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+    }
+
+    .icon-ring {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      border: 2px solid var(--future);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(25, 163, 252, 0.06);
+    }
+
+    .icon-ring svg { width: 1.2rem; height: 1.2rem; color: var(--text); }
+
+    .icon-ring svg circle,
+    .icon-ring svg rect,
+    .icon-ring svg path,
+    .icon-ring svg line,
+    .icon-ring svg polyline {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-ring.has-fill svg path[fill]:not([fill="none"]) { fill: currentColor; stroke: none; }
+
+    .icon-row-body { flex: 1; padding-top: 0.15rem; }
+    .icon-row-body strong { color: var(--text); }
+    .icon-row-body p { font-size: 0.95rem; margin: 0.15rem 0 0; }
+
+    /* Cards -------------------------------------------------------------- */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .card-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .card-body { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .card-grid .card { margin: 0; }
+
+    .card .icon-ring {
+      width: 3rem; height: 3rem; margin-bottom: 0.85rem;
+    }
+    .card .icon-ring svg { width: 1.5rem; height: 1.5rem; }
+
+    /* Stat row ----------------------------------------------------------- */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+      padding: 2rem 1.5rem;
+      background: linear-gradient(180deg, rgba(25,163,252,0.04) 0%, transparent 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .stat-num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(180deg, var(--future) 0%, var(--future-deep) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.4; }
+
+    /* Persona strip ------------------------------------------------------ */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .persona {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .persona-title { font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
+    .persona-body { font-size: 0.88rem; color: var(--text-secondary); margin: 0; }
+
+    /* Pipeline visual --------------------------------------------------- */
+    .pipeline-frame {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .pipeline-frame img { width: 100%; height: auto; display: block; border-radius: 8px; }
+
+    /* Workflow comparison ----------------------------------------------- */
+    .workflow-frame {
+      background: var(--bg-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .workflow-frame img { width: 100%; height: auto; display: block; border-radius: 8px; }
+
+    /* Q&A ---------------------------------------------------------------- */
+    .qa { margin: 1.5rem 0; }
+
+    .qa-item {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--future);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .qa-item.q-green { border-left-color: var(--green); }
+    .qa-item.q-orange { border-left-color: var(--orange); }
+    .qa-item.q-yellow { border-left-color: var(--yellow); }
+
+    .qa-q { font-weight: 700; color: var(--text); margin: 0 0 0.5rem; }
+    .qa-a { font-size: 0.95rem; color: var(--text-secondary); margin: 0; }
+    .qa-a code, .qa-q code { font-size: 0.85em; }
+
+    /* Badges & pills ----------------------------------------------------- */
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      color: var(--text-secondary);
+    }
+
+    .badge.cursor { color: var(--future); border-color: rgba(25, 163, 252, 0.3); background: rgba(25, 163, 252, 0.08); }
+    .badge.claude { color: var(--orange); border-color: rgba(255, 122, 0, 0.3); background: rgba(255, 122, 0, 0.08); }
+    .badge.codex { color: #d97757; border-color: rgba(217, 119, 87, 0.3); background: rgba(217, 119, 87, 0.08); }
+    .badge.windsurf { color: #16a34a; border-color: rgba(22, 163, 74, 0.3); background: rgba(22, 163, 74, 0.08); }
+    .badge.zed { color: #a78bfa; border-color: rgba(167, 139, 250, 0.3); background: rgba(167, 139, 250, 0.08); }
+    .badge.cline { color: #ec4899; border-color: rgba(236, 72, 153, 0.3); background: rgba(236, 72, 153, 0.08); }
+    .badge.cont { color: #facc15; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); }
+    .badge.figma { color: var(--green); border-color: rgba(0, 203, 93, 0.3); background: rgba(0, 203, 93, 0.08); }
+
+    /* Tool tile row ------------------------------------------------------ */
+    .tool-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .tool-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+
+    .tool-tile img, .tool-tile svg {
+      width: 40px; height: 40px; display: block; margin: 0 auto 0.5rem;
+    }
+    .tool-tile .name { font-weight: 700; font-size: 0.9rem; }
+    .tool-tile .role { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+    /* Steps -------------------------------------------------------------- */
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 1.5rem 0; }
+    .steps li { position: relative; padding-left: 3rem; margin-bottom: 1.5rem; min-height: 2rem; }
+    .steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute; left: 0; top: 0;
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      background: rgba(25, 163, 252, 0.12);
+      color: var(--future);
+      display: grid; place-items: center;
+      font-weight: 700; font-size: 0.85rem;
+    }
+
+    /* Tables ------------------------------------------------------------- */
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); }
+    th { font-weight: 600; color: var(--text); background: var(--bg-elevated); }
+    td { color: var(--text-secondary); vertical-align: top; }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+    /* Code --------------------------------------------------------------- */
+    code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.85em; background: var(--bg-elevated); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--future); }
+    pre { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 1.25rem; overflow-x: auto; margin: 1rem 0; }
+    pre code { background: transparent; padding: 0; color: var(--text); font-size: 0.85rem; line-height: 1.6; }
+
+    /* Callouts ----------------------------------------------------------- */
+    .callout {
+      border-left: 3px solid var(--future);
+      background: rgba(25, 163, 252, 0.06);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 1.5rem 0;
+    }
+    .callout strong { color: var(--text); }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .callout.warn { border-left-color: var(--orange); background: rgba(255, 122, 0, 0.06); }
+    .callout.tip { border-left-color: var(--green); background: rgba(0, 203, 93, 0.06); }
+
+    /* Status ------------------------------------------------------------- */
+    .status { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; font-weight: 600; }
+    .status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; }
+    .status.ok { color: var(--green); }
+    .status.ok::before { background: var(--green); }
+    .status.warn { color: var(--yellow); }
+    .status.warn::before { background: var(--yellow); }
+
+    /* Footer ------------------------------------------------------------- */
+    .page-footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive --------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .site { grid-template-columns: 1fr; }
+      .sidebar { position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--line); }
+      .main { padding: 2rem; }
+      .hero { padding: 2rem 1.5rem; }
+      .hero h1 { font-size: 2.25rem; }
+    }
+
+    /* Onboarding walkthrough -------------------------------------------- */
+    .walkthrough {
+      padding: 4rem 3rem 3rem;
+      background: linear-gradient(180deg, rgba(25, 163, 252, 0.04), transparent);
+      border-bottom: 1px solid var(--line);
+    }
+    .walkthrough-head {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .walkthrough-head .eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--future);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .walkthrough-head h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.5rem;
+    }
+    .walkthrough-head p {
+      color: var(--text-dim);
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+    }
+    .step-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-top: 1px dashed var(--line);
+    }
+    .step-row:first-of-type { border-top: none; padding-top: 1rem; }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--future);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 6px rgba(25, 163, 252, 0.1);
+      flex-shrink: 0;
+    }
+    .step-body { min-width: 0; }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .step-header h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .step-time {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+    .step-subtitle {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      margin: 0 0 1rem;
+    }
+    .step-shot {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+      margin: 1rem 0;
+      background: var(--panel);
+    }
+    .step-shot img, .step-shot svg, .step-shot video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .step-cmd {
+      background: #0a0a14;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      font-family: ui-monospace, SF Mono, Menlo, Consolas, monospace;
+      font-size: 0.85rem;
+      color: #e8e8f4;
+      overflow-x: auto;
+    }
+    .step-cmd .prompt { color: #28c840; user-select: none; }
+    .step-cmd .comment { color: #86868B; }
+    .step-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .step-icon-row img {
+      width: 18px;
+      height: 18px;
+      filter: brightness(0) invert(1) opacity(0.7);
+    }
+    .step-icon-row .chip {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+    }
+    .step-row.alt .step-number { background: var(--green); box-shadow: 0 0 0 6px rgba(0, 203, 93, 0.12); }
+    .step-row.alt { background: linear-gradient(90deg, rgba(0, 203, 93, 0.04), transparent); border-radius: 12px; padding-left: 1.5rem; padding-right: 1.5rem; }
+
+    @media (max-width: 720px) {
+      .walkthrough { padding: 2.5rem 1.25rem 2rem; }
+      .step-row { grid-template-columns: 1fr; gap: 1rem; }
+      .walkthrough-head h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">MH</div>
+      <div>
+        <div class="sidebar-title">Mr. Handy</div>
+        <div class="sidebar-subtitle">Design handoff docs</div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="nav-section">
+        <div class="nav-heading">Overview</div>
+        <ul class="nav-list">
+          <li><a href="#walkthrough">5-min quickstart</a></li>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#workflow">Workflow</a></li>
+          <li><a href="#value">Value story</a></li>
+          <li><a href="#personas">Who uses it</a></li>
+        </ul>
+      </div>
+      <div class="nav-section">
+        <div class="nav-heading">Setup</div>
+        <ul class="nav-list">
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#multi-ide-setup">Multi-IDE setup</a></li>
+          <li><a href="#figma-oauth">Figma &amp; Atlassian OAuth</a></li>
+          <li><a href="#uspec-plugin">uSpec Extract plugin</a></li>
+          <li><a href="#config">Configuration</a></li>
+          <li><a href="#adjust">Adjusting for a new company</a></li>
+        </ul>
+      </div>
+      <div class="nav-section">
+        <div class="nav-heading">Usage</div>
+        <ul class="nav-list">
+          <li><a href="#tracks">Three tracks</a></li>
+          <li><a href="#commands">Commands</a></li>
+          <li><a href="#first-handoff">First handoff</a></li>
+          <li><a href="#component-spec">Component spec</a></li>
+          <li><a href="#deck">SlideV deck</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+      </div>
+      <div class="nav-section">
+        <div class="nav-heading">Reference</div>
+        <ul class="nav-list">
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#agents">Agents</a></li>
+          <li><a href="#rules">Rules</a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#design-systems">Design systems</a></li>
+        </ul>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <section class="hero">
+      <span class="hero-eyebrow">Mr. Handy · v1.9.4</span>
+      <h1>Design handoff, automated.<br/>Design polish, still human.</h1>
+      <p class="lead">A documentation specialist for <strong>Cursor, Claude Code, Codex, Windsurf, Zed, Cline, and Continue</strong> that turns your finished Figma file into a structured manifest your dev team can read — SpecCards, Notes, coverage matrix, tokens, accessibility, and an Apple-keynote deck if you want one.</p>
+      <div class="hero-cta-row">
+        <a class="cta cta-primary" href="#walkthrough">Get started in 5 min →</a>
+        <a class="cta cta-secondary" href="#faq">See the FAQ</a>
+      </div>
+    </section>
+
+    <section id="walkthrough" class="walkthrough">
+      <div class="walkthrough-head">
+        <span class="eyebrow">5-MINUTE QUICKSTART</span>
+        <h2>From zip to first handoff in seven steps</h2>
+        <p>Silent auto-setup, placeholders are valid, zero readline prompts. The only manual work is one browser sign-in (Figma + Atlassian use OAuth) and one plugin import (the uSpec Extract plugin, only needed for <code>/handoff-component</code>).</p>
+      </div>
+
+      <!-- Step 1: Download -->
+      <div class="step-row">
+        <div class="step-number">1</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Download the bundle</h3>
+            <span class="step-time">~30s</span>
+          </div>
+          <p class="step-subtitle">Grab <code>MrHandy-v1.9.4.zip</code> from your release page — 481 files, 119.73 MB. The zip bundles the wizard, rules, agents, skills, vendored Figma Console MCP, and the uSpec extractor plugin. No <code>git clone</code> required.</p>
+          <div class="step-shot">
+            <img src="assets/screenshots/step-1-download.svg" alt="Browser showing the Mr. Handy v1.9.4 release page with the zip asset ready to download." />
+          </div>
+          <div class="step-icon-row">
+            <span class="chip">via browser</span>
+            <span>or</span>
+            <span class="chip">git clone</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Unzip -->
+      <div class="step-row">
+        <div class="step-number">2</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Unzip the bundle</h3>
+            <span class="step-time">~10s</span>
+          </div>
+          <p class="step-subtitle">Unzip into any folder, then <code>cd</code> into it. The folder becomes a self-contained project — Mr. Handy is folder-agnostic, you can drop it inside an existing repo or keep it standalone.</p>
+          <div class="step-shot">
+            <img src="assets/screenshots/step-2-unzip.svg" alt="Terminal showing unzip expanding the 481 files of MrHandy-v1.9.4.zip." />
+          </div>
+          <div class="step-cmd">
+<span class="prompt">$</span> unzip MrHandy-v1.9.4.zip<br/>
+<span class="prompt">$</span> cd MrHandy-v1.9.4<br/>
+<span class="prompt">$</span> <span class="comment"># 481 files · 119.73 MB · ready</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Wizard -->
+      <div class="step-row">
+        <div class="step-number">3</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Run the silent auto-setup wizard</h3>
+            <span class="step-time">~3 min</span>
+          </div>
+          <p class="step-subtitle">Double-click the wrapper (or run it from a terminal). The wizard probes Node ≥ 18, populates <code>mr-handy.config.json</code>, asks one y/N question for the optional Atlassian MCP, detects all 7 IDEs, writes the right <code>mcp.json</code> to each (Figma + Atlassian use OAuth, no PAT), builds the uSpec extractor, and prints a 3-step "to finish" checklist (browser sign-in, plugin import for <code>/handoff-component</code>, IDE restart). <strong>Zero readline activity</strong> — placeholders are valid.</p>
+          <div class="step-shot">
+            <img src="assets/screenshots/step-3-wizard.gif" alt="PowerShell terminal running Setup-MrHandy.bat with the 7-phase progress and final to-finish checklist." />
+          </div>
+          <div class="step-cmd">
+<span class="comment"># Windows — double-click or:</span><br/>
+<span class="prompt">&gt;</span> Setup-MrHandy.bat<br/>
+<br/>
+<span class="comment"># macOS / Linux / WSL:</span><br/>
+<span class="prompt">$</span> chmod +x setup-mrhandy.sh<br/>
+<span class="prompt">$</span> ./setup-mrhandy.sh
+          </div>
+          <div class="step-icon-row">
+            <img src="assets/icons/cursor.svg" alt="" /><img src="assets/icons/claude.svg" alt="" /><img src="assets/icons/figma.svg" alt="" />
+            <span>writes 7 <code>mcp.json</code> files</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: OAuth sign-in -->
+      <div class="step-row">
+        <div class="step-number">4</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Sign in to Figma and Atlassian (OAuth)</h3>
+            <span class="step-time">~30s</span>
+          </div>
+          <p class="step-subtitle">No PAT, no email, no API token — the wizard wrote OAuth endpoints into every <code>mcp.json</code>. The IDE opens a browser the first time it calls Figma and Atlassian. Sign in once; tokens are cached afterwards.</p>
+          <div class="step-shot">
+            <img src="assets/screenshots/step-4-oauth.svg" alt="Browser tab showing the Figma OAuth consent page at figma-console-mcp.southleft.com with an Allow button highlighted." />
+          </div>
+          <div class="step-cmd">
+<span class="comment"># Figma opens:</span><br/>
+https://figma-console-mcp.southleft.com<br/>
+<br/>
+<span class="comment"># Atlassian (opt-in) opens:</span><br/>
+https://mcp.atlassian.com
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: (no local plugin needed) -->
+      <div class="step-row">
+        <div class="step-number">5</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>No local Figma plugin to import</h3>
+            <span class="step-time">0s</span>
+          </div>
+          <p class="step-subtitle">The previous release required a hand-imported "Figma Desktop Bridge" plugin to bridge the Console MCP into Figma Desktop. With the switch to OAuth / Remote SSE, that plugin is no longer needed — skip this step. (You'll still import the <strong>uSpec Extract</strong> plugin later, in Step 9 — that's a separate, vendored plugin used only by the per-component path.)</p>
+        </div>
+      </div>
+
+      <!-- Step 6: Cursor -->
+      <div class="step-row">
+        <div class="step-number">6</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Open Mr. Handy in Cursor</h3>
+            <span class="step-time">~10s</span>
+          </div>
+          <p class="step-subtitle">Restart Cursor, open the Mr. Handy folder. Rules under <code>.cursor/rules/</code> auto-load (13 rules · 8 agents · 7 commands), the MCP servers boot from <code>.cursor/mcp.json</code>, and the sidebar shows the file tree. Paste a Figma URL in the chat.</p>
+          <div class="step-shot">
+            <video src="assets/screenshots/MrHandy%20Demo.mp4" autoplay loop muted playsinline aria-label="Screen recording of Mr. Handy running in Cursor: project open, rules loaded, and a Figma URL pasted in chat."></video>
+          </div>
+          <div class="step-icon-row">
+            <img src="assets/icons/cursor.svg" alt="" />
+            <span>Cursor is the default host</span>
+            <span>·</span>
+            <span>Claude Code / Codex use the portable <code>$mr-handy-handoff</code> skill</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7: Result -->
+      <div class="step-row alt">
+        <div class="step-number">7</div>
+        <div class="step-body">
+          <div class="step-header">
+            <h3>Get the handoff back</h3>
+            <span class="step-time">~3 min</span>
+          </div>
+          <p class="step-subtitle">Mr. Handy greets you (Plan mode), confirms scope, runs Flow Mapping, spawns parallel screen analyzers, builds the Scenario Coverage Matrix, and emits the artifacts. <strong>Output:</strong> <code>Handoff-{Flow}.md</code> + <code>Handoff-{Flow}.html</code> + <code>screenshots/</code> + <code>scenario-coverage.md</code>. Mode B writes the SpecCards to a Figma canvas page instead.</p>
+          <div class="step-shot">
+            <video src="assets/screenshots/htmlpreview.mp4" autoplay loop muted playsinline aria-label="Handoff HTML opened in a browser, showing screens, SpecCards with five fields and state pills, cross-screen rules, and a Ready-to-ship CTA."></video>
+          </div>
+          <div class="step-icon-row">
+            <img src="assets/icons/markdown.svg" alt="" />
+            <span>Markdown + HTML + screenshots</span>
+            <span>·</span>
+            <span>or Figma canvas with SpecCards</span>
+            <span>·</span>
+            <span>or Apple-keynote SlideV deck</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a class="cta cta-primary" href="#install">Full setup reference →</a>
+        <a class="cta cta-secondary" style="margin-left:0.5rem;" href="#faq">Skip to FAQ</a>
+      </div>
+    </section>
+
+    <section id="intro" class="content-section">
+      <h2>What it is</h2>
+      <p>Mr. Handy walks your finished Figma file and produces the <strong>documentation manifest your dev team would otherwise build by hand</strong>. It does not design. It does not write code. It reads Figma like a senior designer, writes the docs the way a senior designer would, and turns "one small change" into "re-run the pipeline and patch the delta" — instead of a four-hour rewrite.</p>
+
+      <div class="badge-row">
+        <span class="badge cursor">Cursor</span>
+        <span class="badge claude">Claude Code</span>
+        <span class="badge codex">Codex</span>
+        <span class="badge windsurf">Windsurf</span>
+        <span class="badge zed">Zed</span>
+        <span class="badge cline">Cline</span>
+        <span class="badge cont">Continue</span>
+        <span class="badge figma">Figma native</span>
+      </div>
+
+      <div class="callout">
+        <strong>White-label by design.</strong> Project name, brand, active design system, Figma library key, font family, and deck palette are all read from <code>mr-handy.config.json</code> at runtime. <strong>Any company, any design system — one config swap.</strong>
+      </div>
+    </section>
+
+    <section id="workflow" class="content-section">
+      <h2>The workflow — before and after</h2>
+      <p>The top track is what happens today after screens ship in Figma. The bottom track is what Mr. Handy does from the same file. The only difference is the loop at the end: one full rewrite, or a 5-minute delta run.</p>
+
+      <div class="workflow-frame">
+        <img src="assets/workflow-before-after.svg" alt="Two-track workflow comparison: today is a manual loop that rewrites everything when a frame changes; with Mr. Handy you re-run the pipeline and patch the delta." />
+      </div>
+    </section>
+
+    <section id="value" class="content-section">
+      <h2>What it produces</h2>
+
+      <div class="stat-row">
+        <div>
+          <div class="stat-num">~84%</div>
+          <div class="stat-label">Reduction in per-handoff labor cost in the realistic case</div>
+        </div>
+        <div>
+          <div class="stat-num">3–6h</div>
+          <div class="stat-label">Designer polish window per handoff (down from ~35h)</div>
+        </div>
+        <div>
+          <div class="stat-num">1×</div>
+          <div class="stat-label">Re-run when the canvas changes — not a full rewrite</div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="icon-ring has-fill">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
+          </div>
+          <div class="card-title">Per-screen handoff</div>
+          <p class="card-body"><code>Handoff-{Flow}.md</code> + <code>.html</code> + screenshots. Or a Figma canvas page with SpecCards placed beside the frames. Drop into the project repo, link from the PR, hand to new devs.</p>
+        </div>
+        <div class="card">
+          <div class="icon-ring has-fill">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div class="card-title">Per-component spec</div>
+          <p class="card-body"><code>components/{slug}.md</code> with anatomy, API, color tokens, structure, screen-reader focus order, motion. A single source-of-truth file you can hand to any LLM.</p>
+        </div>
+        <div class="card">
+          <div class="icon-ring has-fill">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="card-title">SlideV deck</div>
+          <p class="card-body">Apple-keynote-style deck generated from the handoff: title card, pullquote, context, capability tour, stats grid, closing CTA. Brand palette auto-bound. PDF + PPTX export.</p>
+        </div>
+      </div>
+
+      <h3>The tool stack</h3>
+      <p>Nothing exotic. The same four tools the modern design-dev handoff already runs on.</p>
+      <div class="tool-row">
+        <div class="tool-tile">
+          <img src="assets/icons/cursor.svg" alt="" />
+          <div class="name">Cursor</div>
+          <div class="role">IDE + agent host</div>
+        </div>
+        <div class="tool-tile">
+          <img src="assets/icons/claude.svg" alt="" />
+          <div class="name">Claude</div>
+          <div class="role">Reasoning model</div>
+        </div>
+        <div class="tool-tile">
+          <img src="assets/icons/figma.svg" alt="" />
+          <div class="name">Figma + MCP</div>
+          <div class="role">Source of truth</div>
+        </div>
+        <div class="tool-tile">
+          <img src="assets/icons/markdown.svg" alt="" />
+          <div class="name">Markdown / HTML</div>
+          <div class="role">Handoff output</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="personas" class="content-section">
+      <h2>Who uses it</h2>
+      <p>Mr. Handy fits any team that does design handoff. The config is the only thing that changes.</p>
+
+      <div class="persona-grid">
+        <div class="persona">
+          <div class="persona-title">In-house product team</div>
+          <p class="persona-body">One design system, one Figma org, one brand. Set up once, run on every feature. New hires onboard by reading the most recent handoff.</p>
+        </div>
+        <div class="persona">
+          <div class="persona-title">Agency / consultancy</div>
+          <p class="persona-body">Multiple client Figma orgs, one shared Mr. Handy install. Swap the library key and brand palette per engagement, keep the pipeline identical.</p>
+        </div>
+        <div class="persona">
+          <div class="persona-title">Design-system publisher</div>
+          <p class="persona-body">The per-component track is the entire reason this tool exists. Anatomy, API, color, structure, a11y, motion — one self-contained <code>.md</code> per component, ready for the public docs site.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="prerequisites" class="content-section">
+      <h2>Prerequisites</h2>
+
+      <div class="icon-row">
+        <div class="icon-ring has-fill"><img src="assets/icons/figma.svg" alt="" /></div>
+        <div class="icon-row-body">
+          <strong>Figma as source-of-truth</strong>
+          <p>Your team designs in Figma. The whole point of Mr. Handy is to read the file as-is.</p>
+        </div>
+      </div>
+      <div class="icon-row">
+        <div class="icon-ring has-fill"><img src="assets/icons/cursor.svg" alt="" /></div>
+        <div class="icon-row-body">
+          <strong>Cursor / Claude Code / Codex / Windsurf / Zed / Cline / Continue seat</strong>
+          <p>The agent host. The setup wizard detects which ones you have and writes the right <code>mcp.json</code> shape for each.</p>
+        </div>
+      </div>
+      <div class="icon-row">
+        <div class="icon-ring has-fill"><img src="assets/icons/figma.svg" alt="" /></div>
+        <div class="icon-row-body">
+          <strong>Figma account + Atlassian account (opt-in)</strong>
+          <p>Figma is always required; Atlassian is opt-in. The wizard writes the OAuth MCP endpoints into every IDE's <code>mcp.json</code>; the browser opens to <code>figma-console-mcp.southleft.com</code> and <code>mcp.atlassian.com</code> on first use, you click <strong>Allow</strong>, and the tokens are cached. No PAT, no email, no API token to paste.</p>
+        </div>
+      </div>
+      <div class="icon-row">
+        <div class="icon-ring has-fill"><img src="assets/icons/figma.svg" alt="" /></div>
+        <div class="icon-row-body">
+          <strong>Figma Desktop installed</strong>
+          <p>The uSpec Extract plugin (for <code>/handoff-component</code>) is desktop-only. Web Figma is not enough.</p>
+        </div>
+      </div>
+      <div class="icon-row">
+        <div class="icon-ring has-fill"><img src="assets/icons/icon-pipeline.svg" alt="" /></div>
+        <div class="icon-row-body">
+          <strong>Node.js ≥ 18</strong>
+          <p>Needed to build the uSpec extractor plugin and export SlideV decks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="content-section">
+      <h2>Install</h2>
+      <p>Unzip the Mr. Handy bundle into any folder, or copy the folder into your project, then run the setup wizard. About five minutes start-to-finish.</p>
+
+      <pre><code># From a zip:
+unzip MrHandy-v1.10.zip
+cd MrHandy-v1.10
+
+# Or, if you cloned:
+git clone &lt;repo-url&gt; mr-handy
+cd mr-handy
+
+# Windows
+Setup-MrHandy.bat
+
+# macOS / Linux / WSL
+chmod +x setup-mrhandy.sh
+./setup-mrhandy.sh
+
+# Direct (any platform)
+node setup-mrhandy.mjs</code></pre>
+
+      <p>The wrapper runs <strong>silently</strong> by default — no readline prompts, placeholders are valid, re-runs are idempotent. The wizard:</p>
+      <ol>
+        <li>Probes Node ≥ 18 and reports the version.</li>
+        <li>Loads <code>.env</code> (if present) and merges into <code>process.env</code>. Precedence: <strong>env &gt; .env &gt; saved config &gt; placeholder</strong>.</li>
+        <li>Populates <code>mr-handy.config.json</code> silently under <code>--auto</code>.</li>
+        <li>Asks a single y/N question for the optional Atlassian MCP (Jira + Confluence).</li>
+        <li>Detects which IDEs you have installed (Cursor, Claude Code, Codex, Windsurf, Zed, Cline, Continue) and writes the right <code>mcp.json</code> shape to each. Figma and Atlassian use OAuth — no PAT, no email, no API token is ever asked for.</li>
+        <li>Builds <code>figma-plugin/</code> (the uSpec extractor).</li>
+        <li>Prints a "to finish" checklist with the OAuth browser sign-in, the uSpec plugin import (only needed for <code>/handoff-component</code>), and the IDE restart steps.</li>
+      </ol>
+
+      <p>For an interactive run (walks the full menu):</p>
+
+      <pre><code># Windows
+SETUP_INTERACTIVE=1 Setup-MrHandy.bat
+
+# macOS / Linux / WSL
+SETUP_INTERACTIVE=1 ./setup-mrhandy.sh
+
+# Direct
+node setup-mrhandy.mjs   # bare invocation is interactive by default</code></pre>
+
+      <p>For headless / CI use:</p>
+
+      <pre><code>node setup-mrhandy.mjs --auto --force
+# doctor
+node setup-mrhandy.mjs --doctor</code></pre>
+    </section>
+
+    <section id="multi-ide-setup" class="content-section">
+      <h2>Multi-IDE setup</h2>
+      <p>The wizard writes the right <code>mcp.json</code> for every IDE it finds on your machine. Per-IDE quirks (Zed's <code>context_servers</code>, Continue's <code>mcp</code> array, Windsurf's nested <code>figma</code> server) are handled in the per-IDE template, not the wizard body.</p>
+
+      <h3>Cursor</h3>
+      <ol class="steps">
+        <li>Run the setup wizard so it writes <code>.cursor/mcp.json</code> with the Figma OAuth MCP entry.</li>
+        <li>Restart Cursor so the MCP servers boot from <code>.cursor/mcp.json</code> and the browser opens to Figma for OAuth sign-in.</li>
+        <li>Open the Mr. Handy repo in Cursor; the rules under <code>.cursor/rules/</code> auto-load.</li>
+        <li>(For <code>/handoff-component</code> only) Import the uSpec Extract plugin — see below.</li>
+      </ol>
+
+      <h3>Claude Code / Codex</h3>
+      <ol class="steps">
+        <li>Run the same setup wizard so <code>mr-handy.config.json</code> and the Figma plugin are ready.</li>
+        <li>In Claude Code (or Codex), point the conversation at the repo root.</li>
+        <li>Invoke the portable skill: <code>Use $mr-handy-handoff</code> and name the track (<code>flow</code>, <code>component</code>, <code>deck</code>, <code>compare</code>, <code>update</code>, <code>audit</code>).</li>
+        <li>The skill spawns real subagents and uses the native <code>figma.use_figma</code> plugin for reads and writes.</li>
+      </ol>
+
+      <h3>Windsurf / Zed / Cline / Continue</h3>
+      <p>Same wizard run, same <code>mr-handy.config.json</code>, different <code>mcp.json</code> location. Restart the IDE after the wizard runs; the rules under <code>.cursor/rules/</code> are loaded as shared references.</p>
+
+      <div class="callout">
+        <strong>Not yet tested end-to-end.</strong> The wizard ships working templates for all 7 IDEs, but Windsurf / Zed / Cline / Continue have not been verified against a real install of each. The <code>verified: false</code> flag in the <code>IDES</code> array is honest about this — if a per-IDE template fails, file an issue and the wizard writes a working stub so the IDE still boots.
+      </div>
+    </section>
+
+    <section id="figma-oauth" class="content-section">
+      <h2>Sign in to Figma and Atlassian (OAuth — no PAT needed)</h2>
+      <p>Figma and Atlassian both use OAuth. The wizard wrote the OAuth MCP endpoints into every IDE's <code>mcp.json</code> for you — there is no PAT, no email, and no API token to paste. The IDE opens a browser the first time it calls each MCP and you sign in there.</p>
+      <ul>
+        <li><strong>Figma</strong> — the browser opens to <code>https://figma-console-mcp.southleft.com</code>. Sign in with Figma and click <strong>Allow</strong>. Subsequent calls use the cached token.</li>
+        <li><strong>Atlassian (opt-in)</strong> — the browser opens to <code>https://mcp.atlassian.com</code>. Sign in with your Atlassian account and click <strong>Allow</strong>. Subsequent calls use the cached token.</li>
+      </ul>
+      <p>To re-enable Atlassian later (or disable it), re-run the interactive wizard — Step 2.5 asks one y/N question and the rest is unchanged.</p>
+
+      <div class="callout">
+        <strong>Atlassian is opt-in.</strong> The wizard asks one y/N question at Phase 2.5; answer <code>y</code> to enable, <code>n</code> to skip. There are no env vars, no email, no API token to set — OAuth handles it. The wizard strips the <code>atlassian</code> block from every IDE's mcp.json when you opt out, so the IDE never tries to boot it.
+      </div>
+    </section>
+
+    <section id="uspec-plugin" class="content-section">
+      <h2>uSpec Extract plugin (per-component path only)</h2>
+      <p>The <code>/handoff-component</code> track runs Mr. Handy's vendored <strong>uSpec Extract</strong> plugin against the selected Figma component. Build happens in Phase 4 of the setup wizard; this section covers the one-time manual import in Figma Desktop.</p>
+
+      <ol class="steps">
+        <li>Open <strong>Figma Desktop</strong> (not the web app — plugin development is desktop-only) and any file.</li>
+        <li>Go to <strong>Plugins → Development → Import plugin from manifest…</strong></li>
+        <li>Select <code>figma-plugin/manifest.json</code> from the repo root.</li>
+        <li>Run <strong>uSpec Extract</strong> on a <code>COMPONENT</code> or <code>COMPONENT_SET</code>.</li>
+      </ol>
+
+      <div class="callout">
+        <strong>No Desktop Bridge plugin needed.</strong> The previous Mr. Handy release shipped a separate "Figma Desktop Bridge" plugin to bridge the Console MCP into Figma Desktop. With the switch to OAuth / Remote SSE, the Figma Console MCP talks directly to Figma's cloud — that plugin is gone. The uSpec Extract plugin is the only plugin this repo ships.
+      </div>
+    </section>
+
+    <section id="config" class="content-section">
+      <h2>Configuration</h2>
+      <p>All runtime settings live in <code>mr-handy.config.json</code>. The schema is in <code>mr-handy.config.schema.json</code>.</p>
+
+      <pre><code>{
+  "$schema": "./mr-handy.config.schema.json",
+  "project": {
+    "name": "Your Project",
+    "brand": "Your Brand"
+  },
+  "designSystem": {
+    "name": "fluent-2",
+    "chipPrefix": "@fluentui/react-components",
+    "figmaLibraryKey": "REPLACE_WITH_LIBRARY_FILE_KEY"
+  },
+  "figmaTemplate": {
+    "fileKey": "YOUR_TEMPLATE_FILE_KEY",
+    "speccardComponentKey": "YOUR_COMPONENT_SET_KEY"
+  },
+  "presentation": {
+    "template": "slidev-apple-keynote",
+    "brandPalette": {
+      "background": "#050511",
+      "text": "#F5F5F7",
+      "accent": "#2997FF",
+      "muted": "#86868B"
+    },
+    "exportFormats": ["pdf", "pptx"]
+  }
+}</code></pre>
+
+      <p>Built-in design systems: <code>carbon</code>, <code>fluent-2</code>, <code>material</code>, <code>apple-hig</code>, and <code>custom</code>.</p>
+    </section>
+
+    <section id="adjust" class="content-section">
+      <h2>Adjusting Mr. Handy for a new company</h2>
+      <p>The whole adjustment is a config swap, not a code change. Four steps:</p>
+
+      <ol class="steps">
+        <li><strong>Run the wizard</strong> interactively with the new project name, brand, and design system:<br/>
+            <code>SETUP_INTERACTIVE=1 node setup-mrhandy.mjs</code>
+        </li>
+        <li><strong>Replace the Figma library key</strong> in <code>mr-handy.config.json</code>:<br/>
+            <code>designSystem.figmaLibraryKey</code> → the new library's file key.
+        </li>
+        <li><strong>Re-run the wizard</strong> with <code>--force</code> so the new library key and any new IDE paths are wired into every per-IDE <code>mcp.json</code>. No secrets to rotate — Figma and Atlassian stay OAuth.</li>
+        <li><strong>Sign in once</strong> in the new environment. The browser opens to <code>figma-console-mcp.southleft.com</code> the first time the IDE calls Figma; click <strong>Allow</strong> and the token is cached.</li>
+      </ol>
+
+      <div class="callout tip">
+        <strong>That is the entire adjustment.</strong> No code rebuild. No schema migration. No re-install. The <code>Knowledge/</code>, <code>.cursor/rules/</code>, and <code>templates/</code> folders stay — they are design-system agnostic by construction. If the new company uses a custom design system that is not in the built-in list, pick <code>custom</code> in the wizard and add a reference doc to <code>Knowledge/design-systems/{your-ds}.md</code> following the <code>_template.md</code> pattern.
+      </div>
+    </section>
+
+    <section id="tracks" class="content-section">
+      <h2>The three tracks</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-title">1. Per-screen handoffs</div>
+          <p class="card-body">Multi-screen flows, dashboards, wizards, kanban boards, full pages. Mr. Handy walks each screen, builds a Scenario Coverage Matrix, annotates SpecCards (the canonical handoff card layout — five fields: Name, Value, Behavior, Description, States), generates a Notes section for cross-screen rules, and produces Markdown + HTML + screenshots, or a Figma canvas page with SpecCards placed beside the frames.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">2. Per-component specs (uSpec)</div>
+          <p class="card-body">A single component, fully specified. Anatomy markers, the variant property matrix, the typed API, color tokens per layer, exact structural dimensions per size/density variant, screen-reader focus order across VoiceOver / TalkBack / ARIA, and motion timelines. The output is a single self-contained <code>components/{slug}.md</code> you can hand to any LLM.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">3. SlideV executive decks</div>
+          <p class="card-body">Turn a completed per-screen handoff into an Apple-keynote-style SlideV deck. The deck creator extracts the story arc, coverage stats, and screenshots from <code>Handoff-{Flow}.md</code>, then emits a ready-to-export <code>presentations/{slug}/</code> package.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="commands" class="content-section">
+      <h2>Commands</h2>
+      <table>
+        <thead>
+          <tr><th>Command</th><th>Track</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/handoff-create</code></td><td>Per-screen</td><td>New flow handoff from a Figma URL.</td></tr>
+          <tr><td><code>/handoff-update</code></td><td>Per-screen</td><td>Refresh an existing handoff after design changes.</td></tr>
+          <tr><td><code>/handoff-compare</code></td><td>Per-screen</td><td>Diff two versions and merge forward.</td></tr>
+          <tr><td><code>/handoff-component</code></td><td>Per-component</td><td>Generate <code>components/{slug}.md</code> from a <code>_base.json</code> extraction.</td></tr>
+          <tr><td><code>/handoff-deck</code></td><td>Deck</td><td>Generate a SlideV deck from a completed handoff.</td></tr>
+          <tr><td><code>/handoff-self-audit</code></td><td>Meta</td><td>Read the run-log corpus and propose rule edits.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="first-handoff" class="content-section">
+      <h2>First handoff</h2>
+      <p>Paste a Figma frame URL and ask for a handoff.</p>
+
+      <div class="card">
+        <p class="card-body"><strong>Cursor / Windsurf / Zed / Cline / Continue:</strong> "Make me a handoff for this Figma file. Mode A, please — Markdown + HTML + screenshots."</p>
+      </div>
+
+      <div class="card">
+        <p class="card-body"><strong>Claude Code / Codex:</strong> "Use $mr-handy-handoff to run the flow track on &lt;Figma URL&gt;."</p>
+      </div>
+
+      <p>Mr. Handy will greet you, confirm scope, run Flow Mapping, spawn parallel screen analyzers, build the Scenario Coverage Matrix, and generate the artifacts.</p>
+    </section>
+
+    <section id="component-spec" class="content-section">
+      <h2>Component spec</h2>
+      <ol class="steps">
+        <li>Build the uSpec extractor plugin:
+          <pre style="margin-top:0.75rem"><code>cd figma-plugin
+npm install
+npm run build</code></pre>
+        </li>
+        <li>In Figma Desktop, import <code>figma-plugin/manifest.json</code> as a development plugin.</li>
+        <li>Select a <code>COMPONENT</code> or <code>COMPONENT_SET</code> and run <strong>uSpec Extract</strong> to write <code>{slug}-_base.json</code>.</li>
+        <li>Run <code>/handoff-component</code> and provide the component link and the path to <code>_base.json</code>.</li>
+      </ol>
+    </section>
+
+    <section id="deck" class="content-section">
+      <h2>SlideV deck</h2>
+      <p>After a handoff is complete, generate a deck:</p>
+
+      <pre><code>/handoff-deck</code></pre>
+
+      <p>Or in Claude Code:</p>
+
+      <pre><code>Use $mr-handy-handoff to create a deck from the handoff we just built.</code></pre>
+
+      <p>Mr. Handy reads the source handoff, copies the Apple-keynote template, binds the brand palette, and emits a ready-to-export SlideV package.</p>
+
+      <pre><code>cd presentations/{project-slug}
+npm install
+npm run dev        # preview
+npm run export:pdf # PDF export</code></pre>
+
+      <p>For a live example, see the <a href="../presentations/ntt-brazil-roi/">ntt-brazil-roi</a> deck — a 30-slide ROI presentation built end-to-end from a Mr. Handy handoff.</p>
+    </section>
+
+    <section id="troubleshooting" class="content-section">
+      <h2>Troubleshooting</h2>
+      <table>
+        <thead>
+          <tr><th>Symptom</th><th>Fix</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Figma read times out / no plugin connected</td><td>Sign in to <code>figma-console-mcp.southleft.com</code> in the browser the first time the IDE calls Figma. Token is cached afterwards; re-Allow if it expires.</td></tr>
+          <tr><td>MCP servers don't appear</td><td>Restart your IDE (Cursor / Claude Code / Codex / Windsurf / Zed / Cline / Continue) after the wizard writes the per-IDE <code>mcp.json</code>.</td></tr>
+          <tr><td><code>node</code> not found</td><td>Install Node ≥ 18 and restart your terminal / IDE.</td></tr>
+          <tr><td>Config validation fails</td><td>Run <code>node setup-mrhandy.mjs --doctor</code> and fix schema errors.</td></tr>
+          <tr><td>Atlassian block is in my mcp.json but I don't use it</td><td>Re-run the interactive wizard (<code>SETUP_INTERACTIVE=1</code>) and answer <code>n</code> to Phase 2.5; the wizard strips the block from every IDE.</td></tr>
+          <tr><td>uSpec Extract won't build</td><td>Run <code>cd figma-plugin && npm install && npm run build</code>.</td></tr>
+          <tr><td>Deck export fails</td><td>Install dependencies with <code>npm install</code> inside the deck folder first.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="faq" class="content-section">
+      <h2>FAQ — common questions</h2>
+
+      <div class="qa">
+        <div class="qa-item q-green">
+          <p class="qa-q">How is the setup?</p>
+          <p class="qa-a">One command. The wizard (<code>Setup-MrHandy.bat</code> on Windows, <code>./setup-mrhandy.sh</code> on macOS / Linux, or <code>node setup-mrhandy.mjs</code> directly) verifies Node ≥ 18, walks you through <code>mr-handy.config.json</code>, asks one y/N question for the optional Atlassian MCP, and builds the uSpec extractor. It takes about three minutes under <code>--auto</code>, five if you go interactive. After that, restart Cursor (or open the repo in Claude Code) and the rules and skills auto-load. Figma and Atlassian use OAuth — no PAT, no email, no API token to paste.</p>
+        </div>
+
+        <div class="qa-item q-green">
+          <p class="qa-q">Can I use this for my company?</p>
+          <p class="qa-a"><strong>Yes.</strong> Mr. Handy is white-label by design. Every brand binding is in <code>mr-handy.config.json</code>: project name, design system name (carbon / fluent-2 / material / apple-hig / custom), Figma library key, font family, brand palette. Adjusting for a new company is a config swap, not a code change. Run the wizard again with the new values and Mr. Handy rewrites the relevant parts only.</p>
+        </div>
+
+        <div class="qa-item q-orange">
+          <p class="qa-q">What are the premises?</p>
+          <p class="qa-a">Four things, all of which most modern design teams already have: Figma as source-of-truth · Cursor or Claude Code seat · Figma Desktop installed (for <code>/handoff-component</code>) · Node.js ≥ 18. Figma and Atlassian use OAuth — no PAT, no email, no API token needed. Full list with the reasoning for each is in the <a href="#prerequisites">Prerequisites</a> section above.</p>
+        </div>
+
+        <div class="qa-item q-orange">
+          <p class="qa-q">How should I adjust it for a new company?</p>
+          <p class="qa-a">Four steps: (1) run the wizard with the new values, (2) replace <code>designSystem.figmaLibraryKey</code> with the new library's file key, (3) re-run the wizard with <code>--force</code> to stamp the new library key into every per-IDE mcp.json, (4) sign in to Figma (OAuth) in the new environment. The full recipe is in the <a href="#adjust">Adjusting for a new company</a> section above.</p>
+        </div>
+
+        <div class="qa-item q-yellow">
+          <p class="qa-q">Does it work for any design system?</p>
+          <p class="qa-a">Yes. Built-in: IBM Carbon, Microsoft Fluent 2, Material Design 3, Apple HIG, plus a <code>custom</code> slot. Add a reference doc to <code>Knowledge/design-systems/{your-ds}.md</code> following the <code>_template.md</code> pattern and you're done.</p>
+        </div>
+
+        <div class="qa-item q-yellow">
+          <p class="qa-q">Does it work without one of the agent hosts?</p>
+          <p class="qa-a">Yes. <strong>Cursor is the default host</strong> and ships the most complete integration (it reads <code>.cursor/rules/</code> and <code>.cursor/mcp.json</code> natively). <strong>Claude Code / Codex</strong> use the portable skill at <code>skills/mr-handy-handoff/</code> and the same <code>.cursor/agents/*.md</code> specs. <strong>Windsurf / Zed / Cline / Continue</strong> also work — the wizard writes the right <code>mcp.json</code> for each and reuses the same shared rules. The rules are the source of truth; the agent host is interchangeable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="agents" class="content-section">
+      <h2>Agents</h2>
+      <table>
+        <thead>
+          <tr><th>Agent</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>mr-handy-screen-analyzer</code></td><td>Structured per-screen analysis JSON.</td></tr>
+          <tr><td><code>mr-handy-scenario-auditor</code></td><td>Coverage matrix + gap analysis.</td></tr>
+          <tr><td><code>mr-handy-doc-generator</code></td><td>DESIGN.md, Markdown, and HTML generation.</td></tr>
+          <tr><td><code>mr-handy-figma-builder</code></td><td>Sequential Mode B canvas construction.</td></tr>
+          <tr><td><code>mr-handy-component-orchestrator</code></td><td>Seven-phase per-component spec workflow.</td></tr>
+          <tr><td><code>mr-handy-deck-creator</code></td><td>SlideV deck generation from handoffs.</td></tr>
+          <tr><td><code>mr-handy-self-auditor</code></td><td>Run-log analysis + rule-edit proposals.</td></tr>
+          <tr><td><code>mr-handy-atlassian-explorer</code></td><td>Jira / Confluence context.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="rules" class="content-section">
+      <h2>Rules</h2>
+      <p>Rules live in <code>.cursor/rules/</code>. They are the source of truth for both IDEs; the portable skill loads them as references. There are 13 rules; the full list:</p>
+      <ul>
+        <li><code>mr-handy-core.mdc</code> — identity, loop, intent router, hard guardrails.</li>
+        <li><code>mr-handy-commands.mdc</code> — command flow and phases.</li>
+        <li><code>mr-handy-figma.mdc</code> — Mode B canvas rules.</li>
+        <li><code>mr-handy-deck.mdc</code> — SlideV deck rules.</li>
+        <li><code>mr-handy-output.mdc</code> — output modes and validation (incl. white-label sweep).</li>
+        <li><code>mr-handy-knowledge-md.mdc</code> — Markdown + DESIGN.md rules.</li>
+        <li><code>mr-handy-humanizer.mdc</code> — AI-writing-tell guardrails.</li>
+        <li><code>mr-handy-mcp.mdc</code> — Figma MCP routing (Console MCP vs Native MCP).</li>
+        <li><code>mr-handy-uspec.mdc</code> — Per-component generation rules.</li>
+        <li><code>mr-handy-design-system.mdc</code> — Design-system resolution from <code>mr-handy.config.json</code>.</li>
+        <li><code>mr-handy-delegation.mdc</code> — fan-out thresholds and conflict surfacing.</li>
+        <li><code>mr-handy-greeting.mdc</code> — Phase 0 intake.</li>
+        <li><code>mr-handy-vault.mdc</code> — RAG knowledge query.</li>
+      </ul>
+    </section>
+
+    <section id="pipeline" class="content-section">
+      <h2>Pipeline</h2>
+      <p>The portable orchestrator runs a 5-phase pipeline:</p>
+      <ol class="steps">
+        <li><strong>Intake & pre-flight</strong> — parse config, collect Figma URL, lock scope.</li>
+        <li><strong>Design baseline</strong> — create/update DESIGN.md.</li>
+        <li><strong>Analysis</strong> — screen analyzer reads every assigned screen.</li>
+        <li><strong>Audit & build</strong> — scenario auditor + doc generator (+ optional figma builder).</li>
+        <li><strong>Review gate & delivery</strong> — assert scope lock, gate stamps, recomputed coverage; specialist pass; run-log + delivery report.</li>
+      </ol>
+      <p>See <code>skills/mr-handy-handoff/references/orchestrator-pipeline.md</code> for the full contract and retry policy.</p>
+    </section>
+
+    <section id="design-systems" class="content-section">
+      <h2>Design systems</h2>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>System</th><th>Chip prefix</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>carbon</code></td><td>IBM Carbon</td><td><code>@carbon/react</code></td></tr>
+          <tr><td><code>fluent-2</code></td><td>Microsoft Fluent 2</td><td><code>@fluentui/react-components</code></td></tr>
+          <tr><td><code>material</code></td><td>Material Design 3</td><td><code>@mui/material</code></td></tr>
+          <tr><td><code>apple-hig</code></td><td>Apple Human Interface Guidelines</td><td><code>@apple/SwiftUI</code></td></tr>
+          <tr><td><code>custom</code></td><td>Bring your own</td><td>your prefix</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer class="page-footer">
+      <p>Generated from the Mr. Handy repo. Source files: <code>docs/</code>, <code>.cursor/rules/</code>, <code>.cursor/agents/</code>, <code>Commands/</code>, <code>skills/mr-handy-handoff/</code>.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Simple active-section highlighting on scroll
+  const sections = document.querySelectorAll('.content-section[id]');
+  const links = document.querySelectorAll('.nav-list a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
