@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr. Handy | Interactive Documentation</title>
+  <meta name="description" content="Documentação interativa bilíngue do Mr. Handy." />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">MH</div>
+      <div>
+        <strong>Mr. Handy</strong>
+        <span>Interactive Docs</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#overview" data-i18n="nav_overview">Visão geral</a>
+      <a href="#how" data-i18n="nav_how">Como funciona</a>
+      <a href="#tracks" data-i18n="nav_tracks">Trilhas</a>
+      <a href="#setup" data-i18n="nav_setup">Instalação</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+
+    <button class="lang-toggle" id="langToggle">EN</button>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-content">
+        <p class="eyebrow" data-i18n="eyebrow">Documentação interativa · Handoff · Figma · IA</p>
+        <h1 data-i18n="hero_title">Mr. Handy transforma arquivos Figma em handoffs claros, rastreáveis e prontos para squads.</h1>
+        <p class="hero-text" data-i18n="hero_text">
+          Uma experiência de documentação para times de design, tecnologia e produto: fluxos, regras de negócio, componentes, tokens, acessibilidade e entregáveis em Markdown, HTML e canvas.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#setup" data-i18n="cta_start">Começar agora</a>
+          <a class="btn secondary" href="../" data-i18n="cta_v1">Ver versão atual</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <span class="status">v2</span>
+        <h2 data-i18n="card_title">Nova experiência bilíngue</h2>
+        <p data-i18n="card_text">Interface única, dark-first, pública e preparada para conteúdo executivo e técnico.</p>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="how_eyebrow">Como funciona</p>
+        <h2 data-i18n="how_title">Do Figma ao handoff estruturado</h2>
+      </div>
+
+      <div class="grid three">
+        <article class="feature-card">
+          <span>01</span>
+          <h3 data-i18n="how_1_title">Lê o design</h3>
+          <p data-i18n="how_1_text">Analisa telas, componentes, hierarquia visual, tokens e estados relevantes.</p>
+        </article>
+
+        <article class="feature-card">
+          <span>02</span>
+          <h3 data-i18n="how_2_title">Organiza o raciocínio</h3>
+          <p data-i18n="how_2_text">Mapeia jornadas, condicionais, erros, regras de negócio e cobertura de cenários.</p>
+        </article>
+
+        <article class="feature-card">
+          <span>03</span>
+          <h3 data-i18n="how_3_title">Entrega documentação</h3>
+          <p data-i18n="how_3_text">Gera documentação pronta para squads, QA, engenharia, produto e liderança.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="tracks">
+      <div class="section-heading">
+        <p class="eyebrow" data-i18n="tracks_eyebrow">Trilhas</p>
+        <h2 data-i18n="tracks_title">Três formas de operar</h2>
+      </div>
+
+      <div class="grid three">
+        <article class="track-card">
+          <h3>Mode A</h3>
+          <p data-i18n="track_a">Markdown, HTML e screenshots para documentação fora do Figma.</p>
+        </article>
+
+        <article class="track-card">
+          <h3>Mode B</h3>
+          <p data-i18n="track_b">Documentação gerada diretamente no canvas do Figma.</p>
+        </article>
+
+        <article class="track-card">
+          <h3>Component Spec</h3>
+          <p data-i18n="track_c">Especificação profunda de componentes, variantes, tokens, estrutura e acessibilidade.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split" id="setup">
+      <div>
+        <p class="eyebrow" data-i18n="setup_eyebrow">Instalação</p>
+        <h2 data-i18n="setup_title">Ambiente necessário</h2>
+        <p data-i18n="setup_text">
+          O Mr. Handy opera com Node.js, Cursor ou IDE compatível, Figma OAuth e plugin uSpec Extract para o fluxo de componentes.
+        </p>
+      </div>
+
+      <div class="checklist">
+        <div><strong>Node.js 18+</strong><span data-i18n="setup_1">Runtime necessário para setup e ferramentas.</span></div>
+        <div><strong>Cursor / IDE</strong><span data-i18n="setup_2">Ambiente onde os comandos e MCPs são carregados.</span></div>
+        <div><strong>Figma OAuth</strong><span data-i18n="setup_3">Autorização via navegador, sem PAT manual.</span></div>
+        <div><strong>uSpec Extract</strong><span data-i18n="setup_4">Plugin usado no caminho de especificação de componentes.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2 data-i18n="faq_title">Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary data-i18n="faq_1_q">O Mr. Handy cria design?</summary>
+          <p data-i18n="faq_1_a">Não. Ele lê designs prontos e gera documentação estruturada para execução, validação e handoff.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq_2_q">Precisa de token manual do Figma?</summary>
+          <p data-i18n="faq_2_a">Não. O fluxo atual usa OAuth via navegador.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="faq_3_q">Essa versão substitui a documentação atual?</summary>
+          <p data-i18n="faq_3_a">Não. Esta é uma versão v2 independente. A versão anterior permanece publicada.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Mr. Handy Docs v2</span>
+    <a href="../" data-i18n="footer_v1">Voltar para versão atual</a>
+  </footer>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
