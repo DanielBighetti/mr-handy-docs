@@ -57,6 +57,10 @@
     gallery_6_title: "Figma OAuth",
     gallery_6_text: "Autorização via navegador para conectar Figma e IDE sem token manual.",
 
+    quickstart_video_label: "5-minute quickstart",
+    quickstart_video_title: "Veja o fluxo inicial em operação",
+    quickstart_video_text: "Um vídeo curto para entender como o Mr. Handy sai do setup e chega ao primeiro fluxo operacional.",
+
     setup_eyebrow: "Instalação",
     setup_title: "Ambiente necessário",
     setup_text: "O Mr. Handy opera com Node.js, Cursor ou IDE compatível, Figma OAuth e plugin uSpec Extract para o fluxo de componentes.",
@@ -134,6 +138,10 @@
     gallery_6_title: "Figma OAuth",
     gallery_6_text: "Browser-based authorization to connect Figma and IDE without a manual token.",
 
+    quickstart_video_label: "5-minute quickstart",
+    quickstart_video_title: "See the initial flow in action",
+    quickstart_video_text: "A short video to understand how Mr. Handy moves from setup to the first operational flow.",
+
     setup_eyebrow: "Setup",
     setup_title: "Required environment",
     setup_text: "Mr. Handy runs with Node.js, Cursor or compatible IDE, Figma OAuth, and the uSpec Extract plugin for the component path.",
@@ -176,5 +184,6 @@ document.getElementById("langToggle").addEventListener("click", () => {
 });
 
 applyLanguage(currentLang);
+
 
 
